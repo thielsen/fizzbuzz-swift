@@ -23,14 +23,13 @@ extension ViewController: AVSpeechSynthesizerDelegate{
 
 class ViewController: UIViewController {
 
-    var wordReader: AVSpeechUtterance!
-    let speechSynthesizer = AVSpeechSynthesizer()
+    var reader: AVSpeechUtterance!
+    let synthesizer = AVSpeechSynthesizer()
     var noteArray = Fizz.toArray()
     var audioIndex = 0
     
-
     @IBAction func buttonTapped(_ sender: Any) {
-        speechSynthesizer.delegate = self
+        synthesizer.delegate = self
         playWord(noteArray[audioIndex])
     }
     
@@ -39,10 +38,10 @@ class ViewController: UIViewController {
             }
     
     func playWord(_ word: String){
-            wordReader = AVSpeechUtterance(string: word)
-            wordReader.rate = 0.5
-            wordReader.volume = 1
-            speechSynthesizer.speak(wordReader)
+            reader = AVSpeechUtterance(string: word)
+            reader.rate = 0.5
+            reader.volume = 1
+            synthesizer.speak(reader)
     }
 }
 
