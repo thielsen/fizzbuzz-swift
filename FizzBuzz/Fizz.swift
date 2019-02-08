@@ -7,10 +7,10 @@
 //
 
 import Foundation
-
+import AVFoundation
 
 class Fizz {
-    func calculate(number: Int) -> String {
+    class func calculate(number: Int) -> String {
         if number % 15 == 0 {
             return "fizzbuzz"
         } else if number % 3 == 0 {
@@ -22,9 +22,18 @@ class Fizz {
         }
     }
     
-    func run() {
+    class func run() {
         for index in 1...100 {
             print(calculate(number: index))
         }
     }
+    
+    class func toArray() -> Array<String> {
+        var arr = [String]()
+        for index in 1...100 {
+            arr.append(calculate(number: index))
+        }
+        return arr
+    }
+    
 }
